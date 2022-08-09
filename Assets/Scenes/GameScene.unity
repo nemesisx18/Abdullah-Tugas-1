@@ -681,7 +681,7 @@ MonoBehaviour:
   zombie: {fileID: 7265153867775185856}
   maxSpawn: 8
   zombieSpawned: 0
-  spawnChance: 0.3
+  spawnChance: 0.9
   timeSpawn: 1
 --- !u!114 &840175873
 MonoBehaviour:
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   point: 0
-  health: 99999
+  health: 5
   waveCount: 1
   destroyQty: 0
   isLose: 0
