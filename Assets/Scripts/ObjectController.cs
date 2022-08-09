@@ -7,6 +7,7 @@ public class ObjectController : MonoBehaviour
     public int speed;
     public bool isZombie;
 
+    public GameManager game;
     Rigidbody2D rig;
 
     private void Start()
@@ -28,6 +29,7 @@ public class ObjectController : MonoBehaviour
     {
         if (isZombie)
         {
+            game.point++;
             Destroy(gameObject);
         }
 

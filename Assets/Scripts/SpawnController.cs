@@ -8,22 +8,16 @@ public class SpawnController : MonoBehaviour
     public GameObject[] objectSpawn;
 
     public int maxSpawn;
-    public int zombieSpawned;
+    private int zombieSpawned;
     public float timeSpawn;
 
     private float timer;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-        
+
         if(timer > timeSpawn)
         {
             SpawnZombie();
@@ -35,7 +29,9 @@ public class SpawnController : MonoBehaviour
     {
         if (zombieSpawned < maxSpawn)
         {
-            Instantiate(objectSpawn[Random.Range(0, objectSpawn.Length)], spawnPos[Random.Range(0, spawnPos.Length)].position, Quaternion.identity);
+            GameObject go = Instantiate(objectSpawn[Random.Range(0, objectSpawn.Length)], spawnPos[Random.Range(0, spawnPos.Length)].position, Quaternion.identity);
+            go.SetActive(true);
+
             zombieSpawned++;
         }
     }
