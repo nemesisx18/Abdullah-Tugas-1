@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
             destroyQty = 0;
             spawn.zombieSpawned = 0;
             spawn.maxSpawn += 2;
+
+            if (waveCount % 5 == 0 && spawn.spawnChance > 0.3)
+            {
+                spawn.spawnChance = spawn.spawnChance - 0.1f;
+            }
         }
     }
 }
