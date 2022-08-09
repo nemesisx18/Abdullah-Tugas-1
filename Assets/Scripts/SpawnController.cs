@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
-    public GameObject zombie;
-    public Transform spawnPos;
+    public Transform[] spawnPos;
+    public GameObject[] objectSpawn;
+
+    public int maxSpawn;
+    public int zombieSpawned;
+    public float timeSpawn;
+
+    private float timer;
     
     // Start is called before the first frame update
     void Start()
@@ -16,6 +22,21 @@ public class SpawnController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Instantiate(zombie, spawnPos);
+        timer += Time.deltaTime;
+        
+        if(timer > timeSpawn)
+        {
+            SpawnZombie();
+            timer = 0;
+        }
+    }
+
+    public void SpawnZombie()
+    {
+        if (zombieSpawned < maxSpawn)
+        {
+            Instantiate(objectSpawn[Random.Range(0, objectSpawn.Length)], spawnPos[Random.Range(0, spawnPos.Length)].position, Quaternion.identity);
+            zombieSpawned++;
+        }
     }
 }
