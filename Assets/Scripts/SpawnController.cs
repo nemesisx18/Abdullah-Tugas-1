@@ -29,7 +29,8 @@ public class SpawnController : MonoBehaviour
     {
         if (zombieSpawned < maxSpawn)
         {
-            GameObject go = Instantiate(objectSpawn[Random.Range(0, objectSpawn.Length)], spawnPos[Random.Range(0,spawnPos.Length)].position, Quaternion.identity);
+            float yPos = Random.Range(-1.2f, 1.2f);
+            GameObject go = Instantiate(objectSpawn[Random.Range(0, objectSpawn.Length)], new Vector2(yPos , spawnPos[Random.Range(0,spawnPos.Length)].position.y ), Quaternion.identity);
             go.SetActive(true);
 
             zombieSpawned++;
