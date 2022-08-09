@@ -8,7 +8,7 @@ public class SpawnController : MonoBehaviour
     public GameObject[] objectSpawn;
 
     public int maxSpawn;
-    private int zombieSpawned;
+    public int zombieSpawned;
     public float timeSpawn;
 
     private float timer;
@@ -29,7 +29,7 @@ public class SpawnController : MonoBehaviour
     {
         if (zombieSpawned < maxSpawn)
         {
-            GameObject go = Instantiate(objectSpawn[Random.Range(0, objectSpawn.Length)], spawnPos[Random.Range(0, spawnPos.Length)].position, Quaternion.identity);
+            GameObject go = Instantiate(objectSpawn[Random.Range(0, objectSpawn.Length)], spawnPos[Random.Range(0,spawnPos.Length)].position, Quaternion.identity);
             go.SetActive(true);
 
             zombieSpawned++;

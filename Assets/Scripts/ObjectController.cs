@@ -30,6 +30,7 @@ public class ObjectController : MonoBehaviour
         if (isZombie)
         {
             game.point++;
+            game.destroyQty++;
             Destroy(gameObject);
         }
 

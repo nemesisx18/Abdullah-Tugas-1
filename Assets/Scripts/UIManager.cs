@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
-    public TextMeshProUGUI health;
     public TextMeshProUGUI poin;
+    public TextMeshProUGUI waveInfo;
+    public TextMeshProUGUI health;
 
+    public GameObject loseUI;
     public GameManager game;
     
     // Update is called once per frame
@@ -15,5 +18,16 @@ public class UIManager : MonoBehaviour
     {
         health.text = "Health: " + game.health.ToString();
         poin.text = "Point: " + game.point.ToString();
+        waveInfo.text = "WAVE " + game.waveCount.ToString();
+
+        if(game.isLose)
+        {
+            loseUI.SetActive(true);
+        }
+    }
+
+    public void RetryGame()
+    {
+        SceneManager.LoadScene("GameScene");
     }
 }
