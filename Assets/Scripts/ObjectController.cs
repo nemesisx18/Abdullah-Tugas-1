@@ -37,7 +37,6 @@ public class ObjectController : MonoBehaviour
         else
         {
             game.isLose = true;
-            Debug.Log("game over");
             Time.timeScale = 0;
         }
     }

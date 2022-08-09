@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public int destroyQty;
 
     public bool isLose;
-
     public SpawnController spawn;
 
     void Start()
@@ -22,7 +21,6 @@ public class GameManager : MonoBehaviour
     {
         if(health == 0)
         {
-            Debug.Log("you lose");
             isLose = true;
             Time.timeScale = 0;
         }
