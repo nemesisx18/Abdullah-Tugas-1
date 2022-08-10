@@ -14,8 +14,7 @@ public class SpawnController : MonoBehaviour
     public float timeSpawn;
 
     private float timer;
-    
-    // Update is called once per frame
+
     void Update()
     {
         timer += Time.deltaTime;
@@ -43,6 +42,7 @@ public class SpawnController : MonoBehaviour
             float yPos = Random.Range(-1.2f, 1.2f);
             GameObject go = Instantiate(randomObj,
                 new Vector2(yPos, spawnPos[Random.Range(0, spawnPos.Length)].position.y), Quaternion.identity);
+
             go.SetActive(true);
 
             zombieSpawned++;

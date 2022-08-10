@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     public int destroyQty;
 
     public bool isLose;
-    public SpawnController spawn;
+    
+    SpawnController spawn;
 
     void Start()
     {
         Time.timeScale = 1;
+        spawn = GetComponent<SpawnController>();
     }
 
     private void Update()
@@ -28,14 +30,13 @@ public class GameManager : MonoBehaviour
         if(destroyQty == spawn.maxSpawn)
         {
             waveCount++;
-            destroyQty = 0;
-            spawn.zombieSpawned = 0;
-            spawn.maxSpawn += 2;
-
             if (waveCount % 5 == 0 && spawn.spawnChance > 0.3)
             {
                 spawn.spawnChance = spawn.spawnChance - 0.1f;
             }
+            destroyQty = 0;
+            spawn.maxSpawn += 2;
+            spawn.zombieSpawned = 0;
         }
     }
 }
