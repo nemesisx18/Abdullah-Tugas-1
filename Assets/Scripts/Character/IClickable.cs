@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Char
 {
-    public interface IRaycastable
+    public interface IClickable
     {
         void Tap(Transform _transform);
     }

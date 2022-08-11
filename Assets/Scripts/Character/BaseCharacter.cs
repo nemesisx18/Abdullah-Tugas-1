@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Char
 {
-    public abstract class BaseCharacter : MonoBehaviour, IRaycastable
+    public abstract class BaseCharacter : MonoBehaviour, IClickable
     {
         protected float speed = 2;
 
