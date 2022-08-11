@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnController : MonoBehaviour
 {
-    public Transform[] spawnPos;
+    public Transform spawnPos;
     public Transform spawnParent;
     public GameObject human, zombie;
     private GameObject randomObj;
@@ -42,7 +42,7 @@ public class SpawnController : MonoBehaviour
         {
             float yPos = Random.Range(-1.2f, 1.2f);
             GameObject go = Instantiate(randomObj,
-                new Vector2(yPos, spawnPos[Random.Range(0, spawnPos.Length)].position.y), Quaternion.identity, spawnParent);
+                new Vector2(yPos, spawnPos.position.y), Quaternion.identity, spawnParent);
 
             go.SetActive(true);
 

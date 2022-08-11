@@ -10,8 +10,15 @@ public class GameManager : MonoBehaviour
     public int destroyQty;
 
     public bool isLose;
+
+    public static GameManager instance;
     
     SpawnController spawn;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {

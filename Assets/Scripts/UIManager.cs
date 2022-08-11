@@ -23,11 +23,13 @@ public class UIManager : MonoBehaviour
         if(game.isLose)
         {
             loseUI.SetActive(true);
+            Time.timeScale = 0;
         }
     }
 
     public void RetryGame()
     {
         SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1;
     }
 }
