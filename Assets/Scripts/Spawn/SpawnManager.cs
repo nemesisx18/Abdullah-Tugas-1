@@ -6,19 +6,17 @@ namespace Spawn
 {
     public class SpawnManager : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> spawnObject;
-
         public Transform spawnPos;
         public Transform spawnParent;
         public GameObject human, zombie;
         private GameObject randomObj;
+        private List<GameObject> spawnObject;
 
         private int maxSpawn = 8;
         private int zombieSpawned;
-        public float timeSpawn;
-        [Range(0, 1)] private float spawnChance = 0.9f;
-
+        private float timeSpawn = 1;
         private float timer;
+        private float spawnChance = 0.9f;
 
         private void Start()
         {
@@ -51,37 +49,21 @@ namespace Spawn
 
             for (int i = 0; i < maxSpawn; i++)
             {
-                float yPos = Random.Range(-1.2f, 1.2f);
-
-                GameObject go = Instantiate(randomObj, new Vector2(yPos, spawnPos.position.y), Quaternion.identity, spawnParent);
+                GameObject go = Instantiate(randomObj, spawnPos.position, Quaternion.identity, spawnParent);
                 go.SetActive(false);
                 spawnObject.Add(go);
             }
-
-            //if (zombieSpawned < maxSpawn)
-            //{
-            //    float yPos = Random.Range(-1.2f, 1.2f);
-            //    GameObject go = Instantiate(randomObj,
-            //        new Vector2(yPos, spawnPos[Random.Range(0, spawnPos.Length)].position.y), Quaternion.identity, spawnParent);
-
-            //    go.SetActive(true);
-
-            //    zombieSpawned++;
-
-
-            //}
         }
 
         public void DespawnZombie()
         {
+            float xPos = Random.Range(-1.2f, 1.2f);
+
             GameObject respawn = GetPooledObject();
             if(respawn != null)
             {
-                while(zombieSpawned < maxSpawn)
-                {
-                    respawn.transform.position = spawnPos.position;
-                    respawn.SetActive(true);
-                }
+                respawn.transform.position = new Vector2(xPos, spawnPos.position.y);
+                respawn.SetActive(true);
             }
         }
 
@@ -94,7 +76,6 @@ namespace Spawn
                     return spawnObject[i];
                 }
             }
-
             return null;
         }
     }

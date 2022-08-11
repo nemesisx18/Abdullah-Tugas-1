@@ -15,14 +15,11 @@ namespace Char
 
         private void Update()
         {
-            if (canMove)
-            {
-                Move(speed);
-            }
+            Move(speed);
 
             if (transform.position.y < endArea.position.y)
             {
-                canMove = false;
+                gameObject.SetActive(false);
             }
 
             if(Input.GetMouseButtonDown(0))

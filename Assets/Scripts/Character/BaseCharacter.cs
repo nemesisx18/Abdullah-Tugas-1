@@ -6,9 +6,8 @@ namespace Char
 {
     public abstract class BaseCharacter : MonoBehaviour, IRaycastable
     {
-        protected bool canMove = true;
         protected float speed = 2;
-        
+
         public abstract void Move(float _speed);
 
         public virtual void Tap(Transform _transform)
