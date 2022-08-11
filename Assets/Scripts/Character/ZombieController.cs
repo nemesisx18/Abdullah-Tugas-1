@@ -6,14 +6,29 @@ namespace Char
 {
     public class ZombieController : BaseCharacter
     {
-        public override void Move()
+        [SerializeField] private Transform endArea;
+
+        public override void Move(float _speed)
         {
-            transform.Translate(Vector2.down * Time.deltaTime);
+            transform.Translate(Vector2.down * _speed * Time.deltaTime);
         }
 
         private void Update()
         {
-            Move();
+            if (canMove)
+            {
+                Move(speed);
+            }
+
+            if (transform.position.y < endArea.position.y)
+            {
+                canMove = false;
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                base.Tap(transform);
+            }
         }
     }
 

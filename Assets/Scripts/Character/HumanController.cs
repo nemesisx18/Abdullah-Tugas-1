@@ -4,29 +4,33 @@ using UnityEngine;
 
 namespace Char
 {
-    
-    public class HumanController : BaseCharacter, IRaycastable
+    public class HumanController : BaseCharacter
     {
-        public override void Move()
-        {
-            transform.Translate(Vector2.down * Time.deltaTime);
-        }
+        [SerializeField] private Transform endArea;
 
-        public void Tap()
+        public override void Move(float _speed)
         {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                Transform objectHit = hit.transform;
-                Debug.Log("tap" + objectHit);
-            }
+            transform.Translate(Vector2.down * _speed * Time.deltaTime);
         }
 
         private void Update()
         {
-            Move();
+            if (canMove)
+            {
+                Move(speed);
+            }
+
+            if (transform.position.y < endArea.position.y)
+            {
+                canMove = false;
+            }
+
+            if(Input.GetMouseButtonDown(0))
+            {
+                base.Tap(transform);
+            }
         }
+
+        
     }
 }
