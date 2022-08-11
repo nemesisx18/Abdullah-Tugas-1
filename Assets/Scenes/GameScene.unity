@@ -680,7 +680,7 @@ MonoBehaviour:
   spawnParent: {fileID: 1334895559}
   human: {fileID: 2366801623094282050}
   zombie: {fileID: 7265153867775185856}
-  maxSpawn: 8
+  maxSpawn: 9999
   zombieSpawned: 0
   spawnChance: 0.9
   timeSpawn: 1
@@ -1465,7 +1465,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &1817226771
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1798,6 +1798,7 @@ GameObject:
   - component: {fileID: 2366801623094282048}
   - component: {fileID: 2366801623094282049}
   - component: {fileID: 5497933943236986115}
+  - component: {fileID: 5497933943236986116}
   m_Layer: 0
   m_Name: Human
   m_TagString: Human
@@ -1879,7 +1880,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2366801623094282050}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ae7fba606aafd242af351303c59d8c8, type: 3}
   m_Name: 
@@ -1887,6 +1888,18 @@ MonoBehaviour:
   speed: 2
   isZombie: 0
   game: {fileID: 840175873}
+--- !u!114 &5497933943236986116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2366801623094282050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498f2761f73992043928efc9a591da63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &5755238375865889281
 Rigidbody2D:
   serializedVersion: 4
@@ -1921,6 +1934,7 @@ GameObject:
   - component: {fileID: 7265153867775185869}
   - component: {fileID: 5755238375865889281}
   - component: {fileID: 7265153867775185868}
+  - component: {fileID: 7265153867775185870}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Zombie
@@ -2002,7 +2016,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7265153867775185856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ae7fba606aafd242af351303c59d8c8, type: 3}
   m_Name: 
@@ -2036,3 +2050,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.4}
   m_EdgeRadius: 0
+--- !u!114 &7265153867775185870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7265153867775185856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a7a5f3e1e79ed40b8784d98d378e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
